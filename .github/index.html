@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d1117">
+  <title>VivaPlay</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">▶</div><div class="brand"><b>VivaPlay</b><small>PLAYER MULTIMÍDIA</small></div>
+  <div class="top-spacer"></div><div class="connection">Player pronto</div>
+</header>
+<main>
+  <section class="welcome">
+    <div><h1>Olá! Vamos assistir?</h1><p>Carregue sua lista e escolha um canal.</p></div>
+    <button id="clearBtn" class="button ghost">Limpar</button>
+  </section>
+  <div class="workspace">
+    <div class="left-column">
+      <section class="player-card">
+        <div class="video-wrap">
+          <video id="video" controls playsinline preload="none"></video>
+          <div id="emptyPlayer" class="empty-player"><div class="big-play">▶</div><b>Pronto para reproduzir</b><span>Escolha um canal da sua lista</span></div>
+        </div>
+        <div class="now-playing"><div><strong id="nowTitle">Nenhum canal selecionado</strong><span id="statusText">Aguardando playlist</span></div><div class="next-controls"><button id="prevBtn" class="button ghost" disabled>◀ Anterior</button><button id="nextBtn" class="button ghost" disabled>Próximo ▶</button></div></div>
+      </section>
+      <section class="import-card">
+        <div class="section-title"><span class="section-icon">＋</span><div><b>Adicionar lista</b><small>Arquivo M3U ou endereço da playlist</small></div></div>
+        <div class="url-row"><input id="playlistUrl" type="url" placeholder="Cole aqui a URL da playlist"><button id="loadUrlBtn" class="button primary">Carregar URL</button></div>
+        <div class="action-row"><button id="loadFileBtn" class="button">Escolher arquivo M3U</button><input id="directUrl" type="url" placeholder="URL direta de vídeo (opcional)"><button id="playDirectBtn" class="button">Abrir stream</button></div>
+        <p class="help">O app não fornece canais. A velocidade depende do tamanho da lista e do servidor. Streams protegidos ou incompatíveis podem não tocar.</p>
+        <div id="message" class="message" role="status" aria-live="polite"></div>
+      </section>
+    </div>
+    <aside class="channels-card">
+      <div class="channels-head"><div class="channels-title"><b>Minha lista</b><span id="channelCount">0</span></div><input id="search" type="search" placeholder="Buscar canal…" autocomplete="off"><div id="categoryTabs" class="category-tabs"></div></div>
+      <div id="channelList" class="channel-list"><div class="list-empty">Importe uma playlist para ver os canais.</div></div>
+      <div class="list-footer">Use somente listas que você tem autorização para acessar.</div>
+    </aside>
+  </div>
+</main>
+<footer>VivaPlay • Player independente para suas playlists autorizadas.</footer>
+<script src="./node_modules/hls.js/dist/hls.min.js"></script>
+<script src="renderer.js"></script>
+</body>
+</html>
